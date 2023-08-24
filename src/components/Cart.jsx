@@ -12,52 +12,18 @@ import TrashSvg from "../assets/TrashSvg";
 import CloseSvg from "../assets/CloseSvg";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Cart() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const products = useSelector((state) => state.cart.items);
 
   const isCartEmpty = cart.totalProducts == 0;
 
-  const clickHandler = async () => {
-    const transactions = {
-      charged_amount: cart.totalPrice,
-    };
-    try {
-      const tr = await axios.post(
-        "http://localhost:3000/transactions",
-        transactions
-      );
-      for (let product of products) {
-        const transaction_details = {
-          product_id: product.id,
-          transaction_id: tr.data.id,
-          quantity: product.quantity,
-          subtotal: product.quantity * product.price,
-        };
-        await axios.post(
-          "http://localhost:3000/transaction_details",
-          transaction_details
-        );
-      }
-      await Swal.fire({
-        icon: "success",
-        title: "Success",
-        text: "Your order has been saved",
-        confirmButtonText: "Ok",
-      });
-      dispatch(resetCart());
-    } catch (error) {
-      Swal.fire({
-        icon: "error",
-        title: "Something went wrong",
-        text: "Please wait a moment while we fix the issue",
-        confirmButtonText: "Ok",
-      });
-      console.log(error.message);
-    }
+  const checkoutHandler = () => {
+    navigate("/checkout");
   };
 
   return (
@@ -92,7 +58,7 @@ function Cart() {
             {cart.items.map((item) => (
               <li
                 key={item.id}
-                className="flex justify-between p-2 gap-4 border-b border-b-gray-200"
+                className="flex justify-between px-4 py-2 gap-4 border-b border-b-gray-200"
               >
                 <div
                   id="tr__wrapper"
@@ -120,8 +86,9 @@ function Cart() {
                       <div id="tr__name" className="font-semibold">
                         {item.name}
                       </div>
-                      <div id="tr__price">
-                        {"Rp." + item.price * item.quantity}
+                      <div id="tr__price">{`Rp. ${item.price}`}</div>
+                      <div id="tr__subtotal" className="font-semibold">
+                        {`Subtotal:  Rp. ${item.price * item.quantity}`}
                       </div>
                     </div>
                     <div
@@ -157,9 +124,11 @@ function Cart() {
               <p className="text-xl font-bold">{"Rp." + cart.totalPrice}</p>
             </div>
           </div>
-          <Link to={"/checkout"}>
-            <Button text="Checkout" variant="primary" />
-          </Link>
+          <Button
+            text="Checkout"
+            variant="primary"
+            onClick={() => checkoutHandler()}
+          />
         </div>
       </div>
     </>

@@ -61,9 +61,9 @@ export const cartSlice = createSlice({
           existingItem.quantity = 1;
         } else {
           existingItem.quantity--;
+          state.totalProducts--;
+          state.totalPrice -= selectedItem.price;
         }
-        state.totalProducts--;
-        state.totalPrice -= selectedItem.price;
       }
     },
     increaseItemQuantity: (state, action) => {

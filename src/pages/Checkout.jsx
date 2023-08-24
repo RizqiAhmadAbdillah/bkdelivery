@@ -57,9 +57,17 @@ function Checkout() {
       <div className="main m-5 md:mx-24 md:my-10 flex flex-col gap-5 md:gap-10">
         <div className="main__header flex flex-col gap-5 md:gap-10">
           <div className="main__title">
-            <h1 className="text-3xl">product details</h1>
+            <h1 className="text-3xl">checkout</h1>
           </div>
         </div>
+        <Link to={"/"}>
+          <Button
+            text="Return to cart"
+            variant="white"
+            iconLeft={<BackSvg />}
+            className="text-xs px-4 py-2"
+          />
+        </Link>
         <div className="grid grid-cols-3">
           <div className="col-span-2 w-11/12">
             <div className="express__checkout">
@@ -67,6 +75,21 @@ function Checkout() {
                 express checkout
               </div>
               <ul className="express__checkout__list px-2 py-5 flex justify-between border border-[#222]/[.1] rounded">
+                <li className="px-10 py-3 bg-[#108ee9] rounded cursor-pointer">
+                  <img
+                    src="https://www.dana.id/_nuxt/img/dana-logo.fe46647.png"
+                    alt="Dana"
+                    className="h-5 w-24"
+                  />
+                </li>
+                <li className="px-10 py-3 bg-[#5f33ba] rounded cursor-pointer">
+                  <img
+                    src="https://storage.googleapis.com/ovo-prd-fs-edu-blog-static/cerdasfinansial/f5807836-ovo-logo-putih.png"
+                    border="0"
+                    alt="PayPal Logo"
+                    className="h-5 w-24"
+                  />
+                </li>
                 <li className="px-10 py-3 bg-[#5a31f4] rounded cursor-pointer">
                   <img
                     src="./src/assets/img/shoppay.svg"
@@ -74,25 +97,10 @@ function Checkout() {
                     className="h-5 w-24"
                   />
                 </li>
-                <li className="px-10 py-3 bg-[#FF9900] rounded cursor-pointer">
-                  <img
-                    src="./src/assets/img/amazonpay.png"
-                    alt="Amazon Pay"
-                    className="h-5 w-24"
-                  />
-                </li>
-                <li className="px-10 py-3 bg-[#ffc439] rounded cursor-pointer">
-                  <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
-                    border="0"
-                    alt="PayPal Logo"
-                    className="h-5 w-24"
-                  />
-                </li>
                 <li className="px-10 py-3 bg-white rounded cursor-pointer">
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Pay_Logo.svg"
-                    alt="Google Pay"
+                    src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg"
+                    alt="Gopay"
                     className="h-5 w-24"
                   />
                 </li>
@@ -100,21 +108,8 @@ function Checkout() {
             </div>
             <div className="line border border-[#222]/[.1] my-5"></div>
             <div className="checkout">
-              <div className="checkout__contactInfo">
-                <h1 className="text-2xl">contact information</h1>
-                <input
-                  type="text"
-                  className="bg-gray-200 w-full p-3 border border-[#222]/[.2] rounded"
-                  value="a@gmail.com"
-                  disabled
-                />
-                <div className="flex gap-2 my-2">
-                  <input type="checkbox" checked readOnly />
-                  <p className="normal-case">Email me with news and offers</p>
-                </div>
-              </div>
               <div className="checkout__address">
-                <h1 className="text-2xl">shipping address</h1>
+                <h1 className="text-xl">shipping address</h1>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <select
@@ -130,14 +125,6 @@ function Checkout() {
                     <input
                       type="text"
                       placeholder="NAME"
-                      value="abc"
-                      className="bg-inherit w-full p-3 border border-[#222]/[.2] rounded"
-                    />
-                  </li>
-                  <li>
-                    <input
-                      type="text"
-                      placeholder="COMPANY (OPTIONAL)"
                       className="bg-inherit w-full p-3 border border-[#222]/[.2] rounded"
                     />
                   </li>
@@ -176,17 +163,17 @@ function Checkout() {
                       className="bg-inherit w-full p-3 border border-[#222]/[.2] rounded"
                     />
                   </li>
-                  <li className="flex justify-between">
+                  {/* <li className="flex justify-between">
                     <Link to={"/"}>
                       <Button
                         text="Return to cart"
-                        variant="secondary"
+                        variant="white"
                         iconLeft={<BackSvg />}
                         classes="normal-case"
                       />
                     </Link>
                     <Button text="continue to shipping" variant="primary" />
-                  </li>
+                  </li> */}
                 </ul>
               </div>
             </div>
@@ -210,10 +197,10 @@ function Checkout() {
                     Quantity: {item?.quantity}
                   </p>
                   <p className="text-sm text-left">
-                    Price: {"$" + item?.price}
+                    Price: {"Rp." + item?.price}
                   </p>
                   <p className="absolute bottom-0 right-0 text-lg font-semibold">
-                    Total: {"$" + item?.price * item.quantity}
+                    Total: {"Rp." + item?.price * item.quantity}
                   </p>
                 </div>
               </div>
@@ -230,14 +217,12 @@ function Checkout() {
                     {`Rp. ${cart.totalPrice}`}
                   </p>
                 </div>
-                <Link to="/checkout">
-                  <Button
-                    text="check out"
-                    variant="primary"
-                    onClick={handleCheckout}
-                    classes="rounded-none w-full"
-                  />
-                </Link>
+                <Button
+                  text="check out"
+                  variant="primary"
+                  onClick={handleCheckout}
+                  classes="rounded-none w-full"
+                />
               </div>
             </div>
           </div>

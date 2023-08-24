@@ -11,7 +11,7 @@ function Button(props) {
     secondary:
       "px-8 py-4 bg-[#454545] text-white font-bold rounded bg-transparent uppercase flex gap-3 justify-between items-center ",
     white:
-      "bg-white text-[#FF6000] border-2 border-[#FF6000] py-4 px-8 rounded font-bold uppercase w-full lg:w-auto ",
+      "bg-white text-[#FF6000] border-2 border-[#FF6000] py-4 px-8 rounded flex gap-3 items-center font-bold uppercase w-full lg:w-auto ",
     blue: "bg-blue-500 text-white py-4 px-8 flex gap-2 rounded font-bold uppercase w-full lg:w-auto items-center ",
   };
   let primary = variants[variant];

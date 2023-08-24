@@ -61,7 +61,6 @@ function Menus() {
       .get(`http://localhost:3000/categories?_embed=products`)
       .then((response) => {
         setProductsByCategoryId(response.data);
-        console.log(response.data);
       })
       .catch((error) => console.log(error.message));
   };
