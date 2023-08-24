@@ -24,7 +24,7 @@
   "products": [
     {
       "id": 1,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "Merdeka Bundle",
       "price": 107727,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/8/1/dczualmr5mi6yqqc4ybapy_product_list.jpg",
@@ -32,7 +32,7 @@
     },
     {
       "id": 2,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "17845 1pc Ayam Crispy + Nasi",
       "price": 28636,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/8/1/hwsqlrhgysscsnrvadys7g_product_list.jpg",
@@ -40,7 +40,7 @@
     },
     {
       "id": 3,
-      "category_id": 1,
+      "categoryId": 1,
       "name": "17845 1pc Ayam Spicy 🌶️ + Nasi",
       "price": 28636,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/8/1/nokuocyrqyrvag3lmyqay2_product_list.jpg",
@@ -48,7 +48,7 @@
     },
     {
       "id": 4,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "King Box Cheeseburger Regular",
       "price": 50909,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/5/pm2f9xmdxrhkjewxpxnbvm_product_list.jpg",
@@ -56,7 +56,7 @@
     },
     {
       "id": 5,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Paket Cheeseburger Regular",
       "price": 39545,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/2/27/s8oaja5mhg8r3yxethmslf_product_list.jpg",
@@ -64,7 +64,7 @@
     },
     {
       "id": 6,
-      "category_id": 2,
+      "categoryId": 2,
       "name": "Paket Mozzarella Cheeseurger Regular",
       "price": 50000,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/q8fcy3iizkbteh7yosahn8_product_list.jpg",
@@ -72,7 +72,7 @@
     },
     {
       "id": 7,
-      "category_id": 3,
+      "categoryId": 3,
       "name": "King JR Cheeseburger",
       "price": 31818,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/ctdcr3nehmhgurjqyhcguz_product_list.jpg",
@@ -80,7 +80,7 @@
     },
     {
       "id": 8,
-      "category_id": 3,
+      "categoryId": 3,
       "name": "King JR Cheeseburger",
       "price": 31818,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/ama9twrsqd7aamlkjb6p8f_product_list.jpg",
@@ -88,7 +88,7 @@
     },
     {
       "id": 9,
-      "category_id": 3,
+      "categoryId": 3,
       "name": "King JR Cheeseburger",
       "price": 31818,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/s2upo4ykacwbinuc3sbwjs_product_list.jpg",
@@ -96,7 +96,7 @@
     },
     {
       "id": 10,
-      "category_id": 4,
+      "categoryId": 4,
       "name": "Super Float Coke",
       "price": 17273,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/eqoizpw9lp2rly3sucsssv_product_details.jpg",
@@ -104,7 +104,7 @@
     },
     {
       "id": 11,
-      "category_id": 4,
+      "categoryId": 4,
       "name": "Super Float Mango",
       "price": 17273,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/r2g8nt2vp4wkwh7j6d9ptw_product_details.jpg",
@@ -112,7 +112,7 @@
     },
     {
       "id": 12,
-      "category_id": 4,
+      "categoryId": 4,
       "name": "Kopi Gula Aren Original",
       "price": 17273,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/prjhdw4wj3pxbrl29ildd5_product_details.jpg",
@@ -120,7 +120,7 @@
     },
     {
       "id": 13,
-      "category_id": 5,
+      "categoryId": 5,
       "name": "Fusion Blueberry",
       "price": 15000,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/7/12/lsahol2gzahfc7yxp2zkuy_product_details.jpg",
@@ -128,7 +128,7 @@
     },
     {
       "id": 14,
-      "category_id": 5,
+      "categoryId": 5,
       "name": "Choco Pie",
       "price": 12727,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/a6rdershku6eykcuienknv_product_details.jpg",
@@ -136,7 +136,7 @@
     },
     {
       "id": 15,
-      "category_id": 5,
+      "categoryId": 5,
       "name": "Cheesy Fries",
       "price": 12727,
       "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/5u2xosufjebqtaaycpmgkw_product_details.jpg",
@@ -167,6 +167,10 @@
     {
       "charged_amount": 40454,
       "id": 1
+    },
+    {
+      "total": 38181,
+      "id": 2
     }
   ],
   "transaction_details": [
@@ -190,6 +194,26 @@
       "quantity": 1,
       "subtotal": 15000,
       "id": 3
+    },
+    {
+      "id": 15,
+      "categoryId": 5,
+      "name": "Cheesy Fries",
+      "price": 12727,
+      "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/5u2xosufjebqtaaycpmgkw_product_details.jpg",
+      "description": "Cheesy Fries ukuran Regular",
+      "quantity": 1,
+      "transactionId": 2
+    },
+    {
+      "id": 14,
+      "categoryId": 5,
+      "name": "Choco Pie",
+      "price": 12727,
+      "image": "https://media-order.bkdelivery.co.id/thumb/product_photo/2023/3/20/a6rdershku6eykcuienknv_product_details.jpg",
+      "description": "Pie isi Coklat Double",
+      "quantity": 2,
+      "transactionId": 2
     }
   ]
 }

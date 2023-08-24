@@ -3,6 +3,7 @@ import Layout from "./layout/Layout";
 import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
 import Menus from "./pages/Menus";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/products" element={<Menus />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Route>
     </Routes>
   );

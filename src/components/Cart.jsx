@@ -12,6 +12,7 @@ import TrashSvg from "../assets/TrashSvg";
 import CloseSvg from "../assets/CloseSvg";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -156,11 +157,9 @@ function Cart() {
               <p className="text-xl font-bold">{"Rp." + cart.totalPrice}</p>
             </div>
           </div>
-          <Button
-            text="Checkout"
-            variant="primary"
-            onClick={() => clickHandler()}
-          />
+          <Link to={"/checkout"}>
+            <Button text="Checkout" variant="primary" />
+          </Link>
         </div>
       </div>
     </>

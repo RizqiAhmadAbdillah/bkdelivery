@@ -4,11 +4,11 @@ import Button from "../components/Button";
 import SortDescSvg from "../assets/SortDescSvg";
 import SortAscSvg from "../assets/SortAscSvg";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../features/cartSlice";
+import { addToCart, resetCategory, setCategory } from "../features/cartSlice";
 
 function Menus() {
   const dispatch = useDispatch();
-  const category = useSelector((state) => state.cart.category);
+  const categoryState = useSelector((state) => state.cart.category);
   const options = ["Best Selling", "Name", "Newest", "Price"];
   const [sortBy, setSortBy] = useState(options[0]);
   const [keyword, setKeyword] = useState("");
@@ -42,8 +42,8 @@ function Menus() {
           break;
       }
     }
-    if (category !== 0) {
-      baseParams.categoryId = category;
+    if (categoryState !== 0) {
+      baseParams.categoryId = categoryState;
     }
     return baseParams;
   };
@@ -55,9 +55,20 @@ function Menus() {
       .then((response) => setProducts(response.data))
       .catch((error) => console.log(error.message));
   };
+  const [productsByCategoryId, setProductsByCategoryId] = useState([]);
+  const getProductsByCategoryId = async () => {
+    await axios
+      .get(`http://localhost:3000/categories?_embed=products`)
+      .then((response) => {
+        setProductsByCategoryId(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => console.log(error.message));
+  };
   useEffect(() => {
     getProducts();
-  }, [sortBy, keyword, isDescending, category]);
+    getProductsByCategoryId();
+  }, [sortBy, keyword, isDescending, categoryState]);
   return (
     <div className="lg:px-24 px-5 py-8 flex flex-col gap-8">
       <div id="products" className="flex flex-col gap-4">
@@ -98,6 +109,31 @@ function Menus() {
             className="px-4 py-2 w-full rounded placeholder:italic"
           />
         </div>
+        <div className="flex justify-between gap-10 overflow-auto">
+          <button
+            onClick={() => dispatch(resetCategory())}
+            className={`font-bold text-lg outline-none border-b-2 ${
+              categoryState === 0
+                ? "border-b-gray-950"
+                : "border-b-[#FFA559]/[0]"
+            }`}
+          >
+            All (15)
+          </button>
+          {productsByCategoryId.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => dispatch(setCategory(category.id))}
+              className={`font-bold text-lg outline-none border-b-2 ${
+                categoryState === category.id
+                  ? "border-b-gray-950"
+                  : "border-b-[#FFA559]/[0]"
+              }`}
+            >
+              {category.name} ({category.products.length})
+            </button>
+          ))}
+        </div>
         <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map((product) => (
             <li key={product.id}>
@@ -120,7 +156,7 @@ function Menus() {
                       })
                     )
                   }
-                  className="text-sm py-3 "
+                  className="text-sm py-3"
                 />
               </div>
             </li>

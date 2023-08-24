@@ -7,6 +7,7 @@ import YoutubeSvg from "../assets/YoutubeSvg";
 import CallSvg from "../assets/CallSvg";
 import EmailSvg from "../assets/EmailSvg";
 import ChatSvg from "../assets/ChatSvg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -14,11 +15,13 @@ function Footer() {
       <div className="footer__top py-10 grid grid-cols-1 gap-8 lg:grid-cols-3 border-b-[0.08rem] border-b-white/[0.5] items-center">
         <div className="flex justify-center order-1 lg:justify-start lg:order-2">
           <div className="w-24 h-full">
-            <img
-              src="https://bkdelivery.co.id/static/website/img/logo_2022_x2.6bb6d972f0a5.png"
-              alt="Burger King Delivery"
-              className="object-cover"
-            />
+            <Link to={"/"}>
+              <img
+                src="https://bkdelivery.co.id/static/website/img/logo_2022_x2.6bb6d972f0a5.png"
+                alt="Burger King Delivery"
+                className="object-cover"
+              />
+            </Link>
           </div>
         </div>
         <div className="flex justify-center order-2">
