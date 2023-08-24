@@ -1,9 +1,13 @@
 import React from "react";
 import Button from "../components/Button";
 import MenuSvg from "../assets/MenuSvg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
+  const navigate = useNavigate();
+  const loginHandler = () => {
+    navigate("/login");
+  };
   return (
     <div className="sticky top-0 left-0 z-10 py-4 px-5 lg:px-24 w-full flex justify-between items-center bg-[#454545] text-white">
       <div className="flex justify-start gap-16">
@@ -28,7 +32,7 @@ function Header() {
         </ul>
       </div>
       <div className="hidden lg:flex">
-        <Button variant="primary" text="LOGIN" />
+        <Button variant="primary" text="LOGIN" onClick={() => loginHandler()} />
       </div>
       <div className="flex lg:hidden">
         <Button variant="primary" iconLeft={<MenuSvg />} />

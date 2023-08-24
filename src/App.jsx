@@ -4,6 +4,7 @@ import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
 import Menus from "./pages/Menus";
 import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/checkout" element={<Checkout />} />
       </Route>
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }
